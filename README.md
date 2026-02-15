@@ -1,8 +1,8 @@
-# SherpaTTS With SSML tag fix
+# SherpaTTS With SSML Tag Fix
 
 This repo is forked from [SherpaTTS](https://github.com/woheller69/ttsEngine), which is an Android Text-to-Speech engine based on Next-gen Kaldi. It uses voices from [Piper Voices](https://rhasspy.github.io/piper-samples/) or [Coqui](https://github.com/coqui-ai/TTS/).
 
-## Why this fork exists
+## Why This Fork Exists
 
 Some applications (Here WeGo, for example) will send speech text with SSML tags. For example:
 ```
@@ -12,6 +12,7 @@ SherpaTTs currently doesn't support SSML tags. When SherpaTTS sees it, the outpu
 ```
 Speak turn left, then turn right break equals 1000ms //speak
 ```
+This behaviour renders this type of applications unusable.
 
 A fix has been put in place to strip SSML tags from the input text before it is sent to TTS pipeline. This is only a temporary measure until a upstream fix is in place.
 
