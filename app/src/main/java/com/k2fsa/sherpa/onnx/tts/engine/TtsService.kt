@@ -80,7 +80,7 @@ class TtsService : TextToSpeechService() {
             TtsEngine.speed.value = request.speechRate / pitch  //divide by pitch to compensate for pitch adjustment performed in ttsCallback
         }         // request.speechRate: System does not memorize different speeds for different languages
 
-        val text = request.charSequenceText.toString()
+        val text = TtsEngine.stripSsmlTags(request.charSequenceText.toString())
 
         val ret = onIsLanguageAvailable(language, country, variant)
         if (ret == TextToSpeech.LANG_NOT_SUPPORTED) {
@@ -152,4 +152,5 @@ class TtsService : TextToSpeechService() {
         }
         return byteArray
     }
+
 }

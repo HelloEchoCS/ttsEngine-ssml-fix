@@ -483,7 +483,7 @@ class MainActivity : ComponentActivity() {
 
                                                 CoroutineScope(Dispatchers.Default).launch {
                                                     TtsEngine.tts!!.generateWithCallback(
-                                                        text = sampleText,
+                                                        text = TtsEngine.stripSsmlTags(sampleText),
                                                         sid = TtsEngine.speakerId.value,
                                                         speed = TtsEngine.speed.value,
                                                         callback = ::callback,

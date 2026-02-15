@@ -34,6 +34,10 @@ object TtsEngine {
     private var dataDir: String = "espeak-ng-data"
     private var dictDir: String? = null
 
+    fun stripSsmlTags(text: String): String {
+        return text.replace(Regex("<[^>]*>"), "").trim()
+    }
+
     fun getAvailableLanguages(context: Context): ArrayList<String> {
         val langCodes = java.util.ArrayList<String>()
         val db = LangDB.getInstance(context)
